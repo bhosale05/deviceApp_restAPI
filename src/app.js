@@ -112,21 +112,6 @@ app.get('/getdevice', (req, res) => {
 });
 
 
-app.get('/getdevice', (req, res) => {
-    deviceSchema.find((error, result) => {
-        if (error) {
-            console.log(`error : ${error}`);
-            res.status(500).send(error);
-        } else {
-            console.log(`get All Deivces`)
-            console.log(result);
-            res.status(200).send(result);
-        }
-    })
-        
-});
-
-
 app.delete('/remove/:id', (req, res) => {
     deviceSchema.findByIdAndRemove(req.params.id, (error, result) => {
         if(error){
